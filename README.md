@@ -1,1 +1,3 @@
- <img src="/images/Tree diagrams.pdf"># Project-2
+#Project-2
+
+ <pdf src="/images/Tree diagrams.pdf">
