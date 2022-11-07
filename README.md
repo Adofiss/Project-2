@@ -1,7 +1,7 @@
 # Workout tracker
 
 ## ERD
-<img src="/public/images/Tree diagrams(2).png">
+<img src="/public/images/ERD.png">
 
 ## wireframe
 
@@ -15,14 +15,14 @@
 <img src="/public/images/Details.png">
 
 ## Technology Used
-Express
-MongoDB
-Mongoode
-Node
-Bootstrap
-CSS
-Javascript
-HTML
-Trello
-Lucid chart
-Google OAuth
+* Express
+* MongoDB
+* Mongoode
+* Node
+* Bootstrap
+* CSS
+* Javascript
+* HTML
+* Trello
+* Lucid chart
+* Google OAuth
