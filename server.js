@@ -12,11 +12,11 @@ require("./config/database");
 require("./config/passport");
 
 var indexRouter = require("./routes/index");
+var workoutsRouter = require('./routes/workouts');
 var usersRouter = require("./routes/users");
 
 var app = express();
 
-// view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
@@ -25,9 +25,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
-// Method-Override
+
+
 app.use(methodOverride("_method"));
-// OAuth Middleware
+
 app.use(
   session({
     secret: process.env.SECRET,
@@ -35,19 +36,20 @@ app.use(
     saveUninitialized: true,
   })
 );
-// Passport Middleware
+
 app.use(passport.initialize());
 app.use(passport.session());
 
-// middleware to send res.locals.user into any view
+
 app.use(function (req, res, next) {
   res.locals.user = req.user;
   next();
 });
 
-// ROUTES
+// Routes
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
+app.use('/workouts', workoutsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
