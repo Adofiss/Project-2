@@ -28,32 +28,34 @@
             <div>
                 <%= workout.time %>
             </div>
-            <!-- <br><br>
-            <h2>destinations</h2>
-            <form id="add-destination-form" method="POST" action="/flights/<%= flight._id %>/destinations">
-                <label>Destinations:</label>
+            <br><br>
+            <h2>exercises</h2>
+            <form id="add-exercise-form" method="POST" action="/workouts/<%= workout._id %>/exercises">
+                <label>Exercises:</label>
                 <textarea name="content"></textarea>
-                <select name="destinations">
+                <select name="exercises">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
                 </select>
-                <input type="submit" value="Add Destination">
+                <input type="submit" value="Add Exercise">
             </form>
 
-            <% if (flight.destinations.length) { %>
+            <% if (workout.exercises.length) { %>
                 <table>
                     <thead>
                         <tr>
-                            <th>Date</th>
-                            <th>destinations</th>
+                            <th>time</th>
+                            <th>exercises</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <% flight.destinations.forEach(function(r) { %>
+                        <% workout.exercises.forEach(function(r) { %>
                             <tr>
                                 <td>
-                                    <%= r.createdAt.toLocaleDateString() %>
+                                    <%= r.createdAt.toLocaleTimeString() %>
                                 </td>
                                 <td>
                                     <%= r.content %>
@@ -66,8 +68,8 @@
                     </tbody>
                 </table>
                 <% } else { %>
-                    <h5>No Destinations Yet</h5>
-                    <% } %> -->
+                    <h5>No Exercises Yet</h5>
+                    <% } %>
                    
                         <%- include('../partials/footer') %>
 </body>
