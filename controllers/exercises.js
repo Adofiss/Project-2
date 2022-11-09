@@ -17,9 +17,9 @@ function addToList(req, res) {
     });
 }
 
+
 function create(req, res) {
     const s = req.body.time;
-    req.body.time = `${s.substr(5, 2)}-${s.substr(8, 2)}-${s.substr(0, 4)}`;
     Exercise.create(req.body, function (err, exercise) {
       res.redirect('/exercises/new');
     });

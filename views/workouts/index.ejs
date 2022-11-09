@@ -26,6 +26,11 @@
                             <%= m.time %>
                         </td>
                         <td><a href="/workouts/<%= m._id %>">DETAILS</a></td>
+                        <td><form action="/workouts/<%= m._id %>?_method=DELETE"
+                            id="delete-form" method="POST">
+                            <button type="submit">delete</button>
+                        <td><a href="/workouts/<%= m.id %>/edit">Edit</a></td>
+                      </form> </td> 
                     </tr>
                     <% }) %>
             </tbody>

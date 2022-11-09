@@ -5,3 +5,4 @@ module.exports = function isLoggedIn(req, res, next) {
     // redirect to login page if user is not already logged in
     res.redirect("/auth/google");
   };
+  

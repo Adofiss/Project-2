@@ -24,13 +24,6 @@
             <form id="add-exercise-form" method="POST" action="/workouts/<%= workout._id %>/exercises">
                 <label>Exercises:</label>
                 <textarea name="content"></textarea>
-                <select name="exercises">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
                 <input type="submit" value="Add Exercise">
             </form>
 
@@ -64,4 +57,4 @@
                    
                         <%- include('../partials/footer') %>
 
-                        
+                                

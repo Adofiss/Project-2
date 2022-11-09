@@ -1,4 +1,5 @@
 // controllers/workouts.js
+const workout = require('../models/workout');
 var Workout = require('../models/workout');
 
 module.exports = {
@@ -6,6 +7,9 @@ module.exports = {
     show,
     new: newWorkout,
     create,
+    delete: deleteWorkout,
+    edit,
+    update
 };
 function index(req, res) {
     Workout.find({}, function (err, workouts) {
@@ -26,4 +30,20 @@ function newWorkout(req, res) {
 function create(req, res) {
     Workout.create(req.body)
     res.redirect('/workouts')
-};
+}
+
+function deleteWorkout(req, res) {
+    res.redirect('/workouts');
+  }
+
+  function update(req, res) {
+    req.body.done = req.body.done === 'on';
+    workout.update(req.params.id, req.body);
+    res.redirect('/workouts');
+  }
+
+  function edit(req, res) {
+    res.render('workouts/edit', {
+        workout: workout.getOne(req.params.id)
+    });
+  }
