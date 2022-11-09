@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
-
+<%- include('../partials/navbar') %>
     <h2>Enter a New Workout</h2>
-    <form action="/flights" method="POST">
+    <form action="/workouts" method="POST">
         <label>name:
             <input type="text" name="name">
         </label><br>
@@ -16,5 +16,5 @@
         </label><br>
         <input type="submit" value="Add Workout">
     </form>
-    
+
     <%- include('../partials/footer') %>

@@ -1,21 +1,6 @@
-<%- include('../partials/header') %>
-<table id="list">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>time</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% workouts.forEach(function(m) { %>
-      <tr>
-        <td><%= m.Name %></td>
-        <td><%= m.time %></td>
-        <td><a href="/workouts/<%= m._id %>">DETAILS</a></td>
-      </tr>
-      <% }); %>
-    </tbody>
-  </table>
-  
-<%- include('../partials/footer') %>
+<%- include('./partials/header') %>
+<%- include('./partials/navbar') %>
+
+<img src="../public/images/workout.png">
+<img src="https://i.imgur.com/FHjYyi0.png">
+<%- include('./partials/footer') %>

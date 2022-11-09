@@ -25,5 +25,5 @@ function newWorkout(req, res) {
 
 function create(req, res) {
     Workout.create(req.body)
-    res.rediect('/workouts')
+    res.redirect('/workouts')
 };
