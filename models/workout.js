@@ -19,6 +19,7 @@ time: {
     type: Number,
     required: true
 },
+list: [{type: Schema.Types.ObjectId, ref: 'Exercise'}]
 }, {
     timestamps: true
 });

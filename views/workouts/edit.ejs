@@ -1,9 +1,20 @@
 <%- include('../partials/header') %>
 <%- include('../partials/navbar') %>
-<form action="/todos/<%= todo.id %>?_method=PUT" method="POST" autocomplete="off">
-    <input type="text" name="todo" value="<%= todo.todo %>">
-    <input type="checkbox" name="done" <%= todo.done ? 'checked' : '' %>>
-    <button type="submit">Save Todo</button>
-  </form>
+<h2>Edit Workout</h2>
+    <form action="/workouts ?_method=PUT" method="POST">
+        <label>name:
+            <input type="text" name="name">
+        </label><br>
+        <label>type:
+            <input type="text" name="type">
+        </label><br>
+        <label>exercise:
+            <input type="text" name="exercise">
+        </label><br>
+        <label>time:
+            <input type="number" name="time">
+        </label><br>
+        <input type="submit" value="UPDATE">
+    </form>
   <%- include('../partials/footer') %>
         

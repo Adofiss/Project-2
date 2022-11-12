@@ -1,60 +1,72 @@
-    <%- include('../partials/header') %>
-    <%- include('../partials/navbar') %>
+<%- include('../partials/header') %>
+<%- include('../partials/navbar') %>
 
 
-        <section id="show-page">
-            <div>name: </div>
-            <div>
-                <%= workout.name %>
-            </div>
-            <div>type: </div>
-            <div>
-                <%= workout.type %>
-            </div>
-            <div>exercise: </div>
-            <div>
-                <%= workout.exercise %>
-            </div>
-            <div>time: </div>
-            <div>
-                <%= workout.time %>
-            </div>
-            <br><br>
-            <h2>exercises</h2>
-            <form id="add-exercise-form" method="POST" action="/workouts/<%= workout._id %>/exercises">
-                <label>Exercises:</label>
-                <textarea name="content"></textarea>
-                <input type="submit" value="Add Exercise">
-            </form>
+    <section id="show-page">
+        <div>name: </div>
+        <div>
+            <%= workout.name %>
+        </div>
+        <div>type: </div>
+        <div>
+            <%= workout.type %>
+        </div>
+        <div>exercise: </div>
+        <div>
+            <%= workout.exercise %>
+        </div>
+        <div>time: </div>
+        <div>
+            <%= workout.time %>
+        </div>
 
-            <% if (workout.length) { %>
-                <table>
-                    <thead>
+        <div>List:</div>
+        <ul>
+          <%- workout.list.map(p => 
+            `<li>${p.name}</li>`
+          ).join('') %>
+        </ul>
+      </section>
+      
+      
+      <br><br>
+      <h2>exercises</h2>
+      
+      <form id="add-per-to-list" action="/workouts/<%= workout._id%>/exercises" method="POST">
+        <select name="exerciseId">
+          <%- exercises.map(p => `<option value="${p._id}">${p.name}</option>`).join('') %>
+        </select>
+        <button type="submit">Add to List</button>
+      </form>
+
+        <% if (workout.length) { %>
+            <table>
+                <thead>
+                    <tr>
+                        <th>time</th>
+                        <th>exercises</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% workout.exercises.forEach(function(r) { %>
                         <tr>
-                            <th>time</th>
-                            <th>exercises</th>
+                            <td>
+                                <%= r.createdAt.toLocaleTimeString() %>
+                            </td>
+                            <td>
+                                <%= r.content %>
+                            </td>
+                            <td>
+                                <%= r.rating %>
+                            </td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        <% workout.exercises.forEach(function(r) { %>
-                            <tr>
-                                <td>
-                                    <%= r.createdAt.toLocaleTimeString() %>
-                                </td>
-                                <td>
-                                    <%= r.content %>
-                                </td>
-                                <td>
-                                    <%= r.rating %>
-                                </td>
-                            </tr>
-                            <% }); %>
-                    </tbody>
-                </table>
-                <% } else { %>
-                    <h5>No Exercises Yet</h5>
-                    <% } %>
-                   
-                        <%- include('../partials/footer') %>
+                        <% }); %>
+                </tbody>
+            </table>
+            <% } else { %>
+                <h5>No Exercises Yet</h5>
+                <% } %>
+               
+                    <%- include('../partials/footer') %>
 
-                                
+                            

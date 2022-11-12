@@ -3,15 +3,13 @@
 
 <section id="badge-container">
   <% exercises.forEach(function(p) { %>
-    <article class="badge"><%= p.name %></article>
+    <option><%= p.name %></option>
   <% }) %>
 </section>
 
 <form id="add-exercise-form" action="/exercises" method="POST">
   <label>Name:</label>
   <input type="text" name="name">
-  <label>Time:</label>
-  <input type="number" name="time">
   <input type="submit" value="Add Exercise">
 </form>
 
