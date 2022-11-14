@@ -51,18 +51,13 @@ function deleteWorkout(req, res, next) {
   }
 
   function update(req, res) {
-    req.body.done = req.body.done === 'on';
-    Workout.updateOne(req.params.id, req.body);
-    res.redirect('/workouts');
+    Workout.updateOne({ _id: req.params.id }, req.body, function (err, update) {
+        res.redirect('/workouts')
+    });
   }
 
-  function edit(req, res) {
-    res.render('workouts/edit', {
-        workout: Workout.findById(req.params.id)
+function edit(req, res) {
+    Workout.findById(req.params.id, function(err, workout) {
+        res.render('workouts/edit', { title: "Edit Workout", workout});
     });
 }
-
-// function edit(req, res) {
-//     Workout.findById(req.params.id)
-//         res.render('workouts/edit')
-//     };
