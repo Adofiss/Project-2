@@ -22,28 +22,27 @@
 
         <div>List:</div>
         <ul>
-          <%- workout.list.map(p => 
-            `<li>${p.name}</li>`
-          ).join('') %>
-        </ul>
+            <%- workout.list.map(p => 
+              `<li>${p.name} </li>`
+            ).join('') %>
+          </ul>
       </section>
       
       
       <br><br>
       <h2>exercises</h2>
       
-      <form id="add-per-to-list" action="/workouts/<%= workout._id%>/exercises" method="POST">
+      <form id="add-per-to-list" method="POST" action="/workouts/<%= workout._id %>/exercises">
         <select name="exerciseId">
           <%- exercises.map(p => `<option value="${p._id}">${p.name}</option>`).join('') %>
         </select>
-        <button type="submit">Add to List</button>
+        <input type="submit" value="Add to List">
       </form>
 
         <% if (workout.length) { %>
             <table>
                 <thead>
                     <tr>
-                        <th>time</th>
                         <th>exercises</th>
                     </tr>
                 </thead>
@@ -55,9 +54,6 @@
                             </td>
                             <td>
                                 <%= r.content %>
-                            </td>
-                            <td>
-                                <%= r.rating %>
                             </td>
                         </tr>
                         <% }); %>

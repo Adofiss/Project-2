@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 <%- include('../partials/navbar') %>
 <h2>Edit Workout</h2>
-    <form action="/workouts ?_method=PUT" method="POST">
+<form action="/workouts/<%= workout.id %>?_method=PUT" method="POST">
         <label>name:
             <input type="text" name="name">
         </label><br>
@@ -17,4 +17,3 @@
         <input type="submit" value="UPDATE">
     </form>
   <%- include('../partials/footer') %>
-        

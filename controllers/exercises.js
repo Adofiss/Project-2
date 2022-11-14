@@ -1,6 +1,6 @@
 // controllers/exercises.js
-const Exercise = require('../models/exercise');
-const Workout = require('../models/workout');
+var Exercise = require('../models/exercise');
+var Workout = require('../models/workout');
 
 module.exports = {
     new: newExercise,
@@ -9,14 +9,13 @@ module.exports = {
 };
 
 function addToList(req, res) {
-    Workout.findById(req.params.id, function(_err, workout) {
+    Workout.findById(req.params.id, function(err, workout) {
         workout.list.push(req.body.exerciseId);
         workout.save(function(err) {
-            res.redirect(`/workout/${workout._id}`);
+            res.redirect(`/workouts/${workout._id}`);
         });
     });
 }
-
 
 function create(req, res) {
     Exercise.create(req.body, function(err, exercise) {
@@ -32,4 +31,3 @@ function create(req, res) {
       });
     })
   }
-  

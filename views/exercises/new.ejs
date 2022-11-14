@@ -1,11 +1,13 @@
 <%- include('../partials/header') %>
 <%- include('../partials/navbar') %>
 
-<section id="badge-container">
-  <% exercises.forEach(function(p) { %>
-    <option><%= p.name %></option>
-  <% }) %>
-</section>
+<p>Please ensure that the Exercise is not already in the list
+  <select>
+    <% exercises.forEach(function(p) { %>
+      <option><%= p.name %></option>
+    <% }) %>
+  </select>
+</p>
 
 <form id="add-exercise-form" action="/exercises" method="POST">
   <label>Name:</label>

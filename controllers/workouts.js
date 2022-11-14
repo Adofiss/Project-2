@@ -1,7 +1,7 @@
 // controllers/workouts.js
 // const { deleteOne } = require('../models/exercise');
-var Exercise = require('../models/exercise');
 var Workout = require('../models/workout');
+var Exercise = require('../models/exercise');
 
 module.exports = {
     index,
@@ -29,18 +29,25 @@ function show(req, res) {
     });
   }
 
+
 function newWorkout(req, res) {
     res.render('workouts/new', { title: 'Add Workout' });
 }
-
+  
 function create(req, res) {
     Workout.create(req.body)
     res.redirect('/workouts')
 }
 
-function deleteWorkout(req, res) {
-    Workout.deleteOne(req.params.id);
-    res.redirect('/workouts');
+function deleteWorkout(req, res, next) {
+    Workout.findOne({
+      "workouts._id": req.params.id,
+    }).then(function (workout) {
+      if (!workout) return res.redirect("/workouts");
+      workout.remove(req.params.id);
+      workout
+      res.redirect('/workouts')
+    });
   }
 
   function update(req, res) {
@@ -55,8 +62,7 @@ function deleteWorkout(req, res) {
     });
 }
 
-// const workout = new Workout(req. body);
-// workout.save(function(err) {
-//   if (err) return res.redirect('/workouts/new');
-//   res.redirect(`/workouts/${workout._id}`);
-// });
+// function edit(req, res) {
+//     Workout.findById(req.params.id)
+//         res.render('workouts/edit')
+//     };
