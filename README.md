@@ -1,15 +1,8 @@
 # Workout tracker
 
-http://localhost:3000/
+# overview
 
-## Screenshots
-
-<img src="/public/images/1.png">
-<img src="/public/images/2.png">
-<img src="/public/images/3.png">
-<img src="/public/images/4.png">
-<img src="/public/images/5.png">
-<img src="/public/images/6.png">
+A simple workout tracking and monitering app.
 
 ## ERD
 
@@ -29,6 +22,32 @@ http://localhost:3000/
 
 <img src="/public/images/Details.png">
 
+## Screenshots
+
+### home page
+
+<img src="/public/images/5.png">
+
+### add workout page
+
+<img src="/public/images/1.png">
+
+### add exercise page
+
+<img src="/public/images/6.png">
+
+### workout page
+
+<img src="/public/images/2.png">
+
+### edit page
+
+<img src="/public/images/4.png">
+
+### detail page
+
+<img src="/public/images/3.png">
+
 ## Technology Used
 
 - Express
@@ -42,3 +61,7 @@ http://localhost:3000/
 - Trello
 - Lucid chart
 - Google OAuth
+
+## trello link
+
+https://trello.com/b/uAcCSoen/project-2
